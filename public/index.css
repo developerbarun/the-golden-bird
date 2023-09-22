@@ -1,0 +1,59 @@
+*{
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: white;
+    width: 250px;
+    margin: 10px;
+}
+.cardimg{
+    height: 250px;
+    width: 250px;
+    background-size: cover;
+    margin-bottom: 5px;
+}
+.car-1{
+    background-image: url(./indiagate.jpeg);
+}
+.car-2{
+    background-image: url(./menakshitemple.jpeg);
+}
+.car-3{
+    background-image: url(./lotustemple.jpeg);
+}
+.card a{
+    color: orangered;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+.card:hover{
+    background-color: rgb(207, 232, 206);
+    color: azure;   
+    cursor: pointer; 
+    transform: scale(1.05);
+    transition: all 1s ease;
+}
+.indiatxt{
+    text-align: center;
+    font-size: larger;
+}
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }

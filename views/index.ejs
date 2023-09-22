@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food List</title>
+    <style>
+        /* CSS for the list items */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        img {
+            max-width: 200px;
+            margin-left: 20px; /* Space between image and text */
+        }
+
+        .text-container {
+            flex-grow: 1;
+            padding: 10px;
+        }
+
+        h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Food</h1>
+    <ul>
+        <% foodData.forEach(foodItem => { %>
+            <li>
+                <div class="text-container">
+                    <h2><%= foodItem.name %></h2>
+                    <p><%= foodItem.description %></p>
+                </div>
+                <img src="<%= foodItem.image %>" alt="<%= foodItem.name %>" width="200">
+            </li>
+        <% }); %>
+    </ul>
+
+</body>
+</html>
