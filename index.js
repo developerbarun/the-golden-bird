@@ -119,12 +119,7 @@ function getMonumentsData(req, res) {
 //     res.render(category, { state });
 // }
 
-app.get("/",(req,res) => {
 
-    res.render('home');
-    res.redirect('/uttar%20pradesh/food');
-
-})
 
 // app.get('/:state/:category', redirectToCategory);
 
