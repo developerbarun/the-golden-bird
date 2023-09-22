@@ -9,6 +9,9 @@
         ul {
             list-style: none;
             padding: 0;
+            width: 100px;
+            height: 200px;
+            display: inline;
         }
 
         li {
@@ -18,33 +21,66 @@
         }
 
         img {
-            max-width: 200px;
-            margin-left: 20px; /* Space between image and text */
+            /* max-width: 200px;
+            margin-left: 20px;
+            align-items: center;  */
         }
 
         .text-container {
             flex-grow: 1;
-            padding: 10px;
+            padding: 40px;
+
         }
 
         h2 {
             margin: 0;
+            font-size: 40px;
         }
+        .center {
+            /* margin-left: auto;
+            margin-right: auto; */
+            position: relative;
+            right: -60px;
+            /* top: -10px; */
+            width: 300px;
+            height: 250px;
+            display: inline-block;
+        }
+        p {
+            font-size: 20px;
+            position: relative;
+            display: inline-block;
+            left: 30px;
+            width: 800px;
+        }
+
+    
+
+        
     </style>
 </head>
 <body>
-    <h1>Food</h1>
-    <ul>
+    <h1><%= foodData ? 'Food' : artData ? 'Art' : '' %></h1>
+<ul>
+    <% if (foodData) { %>
         <% foodData.forEach(foodItem => { %>
             <li>
                 <div class="text-container">
-                    <h2><%= foodItem.name %></h2>
+                    <h2><%= foodItem.name %></h2><br>
                     <p><%= foodItem.description %></p>
-                </div>
-                <img src="<%= foodItem.image %>" alt="<%= foodItem.name %>" width="200">
-            </li>
-        <% }); %>
-    </ul>
+                    <img src="<%= foodItem.image %>" alt="<%= foodItem.name %>" class="center">
 
+                </div>
+            </li>
+        <% }) %>
+    <% } %>
+</ul>
 </body>
 </html>
+
+
+
+
+
+
+   

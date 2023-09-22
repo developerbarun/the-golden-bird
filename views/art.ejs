@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food List</title>
+    <style>
+        /* CSS for the list items */
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100px;
+            height: 200px;
+            display: inline;
+        }
+
+        li {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        img {
+            /* max-width: 200px;
+            margin-left: 20px;
+            align-items: center;  */
+        }
+
+        .text-container {
+            flex-grow: 1;
+            padding: 40px;
+
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 40px;
+        }
+        .center {
+            /* margin-left: auto;
+            margin-right: auto; */
+            position: relative;
+            right: -60px;
+            top: -20px;
+            width: 300px;
+            display: inline-block;
+        }
+        p {
+            font-size: 30px;
+            position: relative;
+            display: inline-block;
+            left: 30px;
+            width: 800px;
+        }
+
+    
+
+        
+    </style>
+</head>
+
+<body>
+    <ul>
+        <% if (artData) { %>
+            <% artData.forEach(artItem=> { %>
+                <li>
+                    <div class="text-container" id="blank-space-container">
+                        <h2 style="align-items: center; text-align: center;">
+                            <%= artItem.name %>
+                        </h2>
+
+                        <p>
+                            <%= artItem.description %>
+                        </p>
+                        <img align="left | right" src="<%= artItem.image %>" alt="<%= artItem.name %>" class="center">
+
+                    </div>
+                </li>
+                <% }) %>
+                    <% } %>
+    </ul>
+</body>
+
+</html>
