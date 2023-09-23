@@ -1,85 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food List</title>
-    <style>
-        /* CSS for the list items */
-        ul {
-            list-style: none;
-            padding: 0;
-            width: 100px;
-            height: 200px;
-            display: inline;
-        }
-
-        li {
-            display: flex;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-
-        img {
-            /* max-width: 200px;
-            margin-left: 20px;
-            align-items: center;  */
-        }
-
-        .text-container {
-            flex-grow: 1;
-            padding: 40px;
-
-        }
-
-        h2 {
-            margin: 0;
-            font-size: 40px;
-        }
-        .center {
-            /* margin-left: auto;
-            margin-right: auto; */
-            position: relative;
-            right: -60px;
-            top: -20px;
-            width: 300px;
-            display: inline-block;
-        }
-        p {
-            font-size: 30px;
-            position: relative;
-            display: inline-block;
-            left: 30px;
-            width: 800px;
-        }
-
-    
-
-        
-    </style>
+  <title>Cards</title>
 </head>
 
+<style type="text/css">
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #E6E6FA; /* Lavender background color */
+  }
+
+  .main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center the row of cards */
+      padding: 20px;
+  }
+
+  .card {
+      width: calc(33.33% - 20px); /* Each card takes up one-third of the available width with margin */
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px; /* Rounded corners */
+      margin: 10px; /* Adjust the margin to create spacing between cards */
+      background-color: white; /* Card background color */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle depth effect */
+  }
+
+  .image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-top-left-radius: 10px; /* Rounded corners for top-left and top-right */
+      border-top-right-radius: 10px;
+  }
+
+  .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .title {
+      text-align: center;
+      padding: 10px;
+  }
+
+  h1 {
+      font-size: 24px; /* Larger font size for a more professional look */
+  }
+
+  .des {
+      padding: 10px;
+      text-align: center;
+      flex-grow: 1;
+  }
+
+  p {
+      font-size: 16px; /* Font size for description */
+  }
+
+  button {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+  }
+
+  button:hover {
+      background-color: black;
+      color: white;
+      transition: 0.5s;
+      cursor: pointer;
+  }
+</style>
+
 <body>
-    <ul>
-        <% if (artData) { %>
-            <% artData.forEach(artItem=> { %>
-                <li>
-                    <div class="text-container" id="blank-space-container">
-                        <h2 style="align-items: center; text-align: center;">
-                            <%= artItem.name %>
-                        </h2>
+  <div class="main">
+    <% if (artData) { %>
+    <% artData.forEach(artItem => { %>
 
-                        <p>
-                            <%= artItem.description %>
-                        </p>
-                        <img align="left | right" src="<%= artItem.image %>" alt="<%= artItem.name %>" class="center">
+    <div class="card">
 
-                    </div>
-                </li>
-                <% }) %>
-                    <% } %>
-    </ul>
+      <div class="image">
+        <img src="<%= artItem.image %>" alt="<%= artItem.name %>" />
+      </div>
+      <div class="title">
+        <h1>
+          <%= artItem.name %>
+        </h1>
+      </div>
+      <div class="des">
+        <p>
+          <%= artItem.description %>
+        </p>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
+  </div>
 </body>
 
 </html>

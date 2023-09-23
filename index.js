@@ -8,7 +8,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const statesData = require('./states.json');
 
-
+app.get("/", (req,res) => {
+    res.render('home')
+})
 
 function getFoodData(req, res) {
     const state = req.params.state;
